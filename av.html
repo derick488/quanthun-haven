@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Anime</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Avaliação de Anime</h1>
+        <form id="anime-form">
+            <label for="anime-title">Título do Anime:</label>
+            <input type="text" id="anime-title" name="anime-title" required>
+
+            <label for="anime-rating">Avaliação:</label>
+            <select id="anime-rating" name="anime-rating" required>
+                <option value="">Escolha uma opção</option>
+                <option value="1">1 - Muito Ruim</option>
+                <option value="2">2 - Ruim</option>
+                <option value="3">3 - Regular</option>
+                <option value="4">4 - Bom</option>
+                <option value="5">5 - Excelente</option>
+            </select>
+
+            <label for="anime-review">Comentário:</label>
+            <textarea id="anime-review" name="anime-review" rows="4"></textarea>
+
+            <button type="submit">Enviar Avaliação</button>
+        </form>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        document.getElementById('anime-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('feedback');
+            const title = document.getElementById('anime-title').value;
+            const rating = document.getElementById('anime-rating').value;
+            const review = document.getElementById('anime-review').value;
+            
+            feedback.innerHTML = `<h2>Avaliação Recebida!</h2>
+                                  <p>Título: ${title}</p>
+                                  <p>Avaliação: ${rating}</p>
+                                  <p>Comentário: ${review}</p>`;
+        });
+    </script>
+</body>
+</html>
